@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+asset_processor_env/
+
+# Large AI model files (rembg downloads these)
+.u2net/
+
+# Optional: Exclude raw character sheets if they're very large
+# assets/raw/character_sheets/*.png
+
+# Node modules if using JavaScript
+node_modules/
+
+# IDE files
+.vscode/
+.idea/

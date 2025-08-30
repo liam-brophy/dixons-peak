@@ -1,0 +1,11 @@
+{
+  "name": "dixons-peak",
+  "version": "1.0.0",
+  "description": "Game project with asset pipeline",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

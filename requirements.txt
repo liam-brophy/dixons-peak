@@ -1,0 +1,2 @@
+# Python dependencies for asset processing tools
+jsonschema

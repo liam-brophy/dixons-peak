@@ -1,0 +1,10 @@
+{
+  "input_dirs": [
+    "../assets/raw/character_sheets",
+    "../assets/raw/item_sheets"
+  ],
+  "output_dirs": {
+    "characters": "../assets/game/characters",
+    "items": "../assets/game/items"
+  }
+}
