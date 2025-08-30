@@ -1,5 +1,46 @@
 {
-  "characters": [],
-  "items": [],
-  "ui": []
+  "version": "1.0",
+  "assets": {
+    "Dixon_Water": {
+      "Dixon_Water_idle_left": "assets/game/characters/Dixon_Water/Dixon_Water_idle_left.png",
+      "Dixon_Water_idle_right": "assets/game/characters/Dixon_Water/Dixon_Water_idle_right.png",
+      "Dixon_Water_idle_up": "assets/game/characters/Dixon_Water/Dixon_Water_idle_up.png",
+      "Dixon_Water_idle_down": "assets/game/characters/Dixon_Water/Dixon_Water_idle_down.png",
+      "Dixon_Water_walk_left": "assets/game/characters/Dixon_Water/Dixon_Water_walk_left.png",
+      "Dixon_Water_walk_right": "assets/game/characters/Dixon_Water/Dixon_Water_walk_right.png",
+      "Dixon_Water_walk_up": "assets/game/characters/Dixon_Water/Dixon_Water_walk_up.png",
+      "Dixon_Water_walk_down": "assets/game/characters/Dixon_Water/Dixon_Water_walk_down.png",
+      "Dixon_Water_jump_left": "assets/game/characters/Dixon_Water/Dixon_Water_jump_left.png",
+      "Dixon_Water_jump_right": "assets/game/characters/Dixon_Water/Dixon_Water_jump_right.png",
+      "Dixon_Water_jump_up": "assets/game/characters/Dixon_Water/Dixon_Water_jump_up.png",
+      "Dixon_Water_jump_down": "assets/game/characters/Dixon_Water/Dixon_Water_jump_down.png",
+      "Dixon_Water_fall_left": "assets/game/characters/Dixon_Water/Dixon_Water_fall_left.png",
+      "Dixon_Water_fall_right": "assets/game/characters/Dixon_Water/Dixon_Water_fall_right.png",
+      "Dixon_Water_fall_up": "assets/game/characters/Dixon_Water/Dixon_Water_fall_up.png",
+      "Dixon_Water_fall_down": "assets/game/characters/Dixon_Water/Dixon_Water_fall_down.png"
+    },
+    "Dixon_Floral": {
+      "Dixon_Floral_idle_left": "assets/game/characters/Dixon_Floral/Dixon_Floral_idle_left.png",
+      "Dixon_Floral_idle_right": "assets/game/characters/Dixon_Floral/Dixon_Floral_idle_right.png",
+      "Dixon_Floral_idle_up": "assets/game/characters/Dixon_Floral/Dixon_Floral_idle_up.png",
+      "Dixon_Floral_idle_down": "assets/game/characters/Dixon_Floral/Dixon_Floral_idle_down.png",
+      "Dixon_Floral_walk_left": "assets/game/characters/Dixon_Floral/Dixon_Floral_walk_left.png",
+      "Dixon_Floral_walk_right": "assets/game/characters/Dixon_Floral/Dixon_Floral_walk_right.png",
+      "Dixon_Floral_walk_up": "assets/game/characters/Dixon_Floral/Dixon_Floral_walk_up.png",
+      "Dixon_Floral_walk_down": "assets/game/characters/Dixon_Floral/Dixon_Floral_walk_down.png",
+      "Dixon_Floral_jump_left": "assets/game/characters/Dixon_Floral/Dixon_Floral_jump_left.png",
+      "Dixon_Floral_jump_right": "assets/game/characters/Dixon_Floral/Dixon_Floral_jump_right.png",
+      "Dixon_Floral_jump_up": "assets/game/characters/Dixon_Floral/Dixon_Floral_jump_up.png",
+      "Dixon_Floral_jump_down": "assets/game/characters/Dixon_Floral/Dixon_Floral_jump_down.png",
+      "Dixon_Floral_fall_left": "assets/game/characters/Dixon_Floral/Dixon_Floral_fall_left.png",
+      "Dixon_Floral_fall_right": "assets/game/characters/Dixon_Floral/Dixon_Floral_fall_right.png",
+      "Dixon_Floral_fall_up": "assets/game/characters/Dixon_Floral/Dixon_Floral_fall_up.png",
+      "Dixon_Floral_fall_down": "assets/game/characters/Dixon_Floral/Dixon_Floral_fall_down.png"
+    }
+  },
+  "sprite_size": [
+    64,
+    64
+  ],
+  "format": "PNG"
 }

@@ -1,20 +1,37 @@
 {
   "input_dir": "assets/raw/character_sheets",
   "output_dir": "assets/game",
-  "sprite_size": [64, 64],
+  "sprite_size": [
+    64,
+    64
+  ],
   "grid_detection": {
-    "auto_detect": true,
+    "auto_detect": false,
     "manual_rows": 4,
     "manual_cols": 4
   },
   "naming": {
     "character_name": "character",
-    "actions": ["idle", "walk", "jump", "fall"],
-    "directions": ["left", "right", "up", "down"]
+    "actions": [
+      "idle",
+      "walk",
+      "jump",
+      "fall"
+    ],
+    "directions": [
+      "left",
+      "right",
+      "up",
+      "down"
+    ]
   },
   "background_removal": {
     "method": "color_key",
-    "color_key": [255, 255, 255],
+    "color_key": [
+      255,
+      255,
+      255
+    ],
     "tolerance": 30
   },
   "output_format": "PNG",
