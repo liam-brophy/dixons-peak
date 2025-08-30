@@ -3,6 +3,7 @@ export class AssetLoader {
   constructor() {
     this.assets = {};
     this.sprites = {};
+    this.backgrounds = {};
     this.loaded = false;
     this.loadingPromise = null;
   }
@@ -29,12 +30,14 @@ export class AssetLoader {
         // Store asset paths
         this.assets = manifest.assets;
         
-        // Load all sprites
+        // Load all sprites and backgrounds
         await this.loadSprites();
+        await this.loadBackgrounds();
         
         this.loaded = true;
         console.log('✅ All assets loaded successfully');
         console.log('🖼️  Available sprites:', Object.keys(this.sprites));
+        console.log('🌄 Available backgrounds:', Object.keys(this.backgrounds));
         resolve();
       } catch (error) {
         console.error('❌ Error loading assets:', error);
@@ -57,11 +60,17 @@ export class AssetLoader {
   }
 
   async loadSprites() {
-    const characterTypes = Object.keys(this.assets);
+    // Only load character assets, not backgrounds
+    const characterTypes = Object.keys(this.assets).filter(key => key !== 'backgrounds');
     const loadPromises = [];
     
     for (const characterType of characterTypes) {
       const characterAssets = this.assets[characterType];
+      
+      // Skip if this is not a character object
+      if (!characterAssets || typeof characterAssets !== 'object') {
+        continue;
+      }
       
       for (const [assetName, assetInfo] of Object.entries(characterAssets)) {
         // Extract the path from the asset info object
@@ -70,8 +79,42 @@ export class AssetLoader {
       }
     }
     
+    console.log(`🎮 Loading sprites for ${characterTypes.length} characters...`);
+    
     // Wait for all sprites to load
     await Promise.allSettled(loadPromises);
+  }
+
+  async loadBackgrounds() {
+    // Load background assets if they exist
+    if (this.assets.backgrounds) {
+      const backgroundPromises = [];
+      
+      for (const [bgName, bgInfo] of Object.entries(this.assets.backgrounds)) {
+        const bgPath = bgInfo.path || bgInfo;
+        backgroundPromises.push(this.loadBackground(bgName, bgPath));
+      }
+      
+      await Promise.allSettled(backgroundPromises);
+    } else {
+      console.log('📄 No backgrounds found in manifest');
+    }
+  }
+
+  async loadBackground(name, path) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => {
+        this.backgrounds[name] = img;
+        console.log(`✅ Background loaded: ${name}`);
+        resolve(img);
+      };
+      img.onerror = (error) => {
+        console.warn(`⚠️  Failed to load background ${name} from ${path}:`, error);
+        resolve(null);
+      };
+      img.src = '/assets/game/' + path;
+    });
   }
 
   async loadSprite(name, path) {
@@ -91,12 +134,15 @@ export class AssetLoader {
   }
 
   // Get a sprite by its name
-  getSprite(spriteName) {
-    // Return the sprite if it exists
-    if (this.sprites[spriteName]) {
-      return this.sprites[spriteName];
-    }
-    
-    return null;
+  getSprite(name) {
+    return this.sprites[name] || null;
+  }
+
+  getBackground(name) {
+    return this.backgrounds[name] || null;
+  }
+
+  getAllBackgrounds() {
+    return Object.keys(this.backgrounds);
   }
 }

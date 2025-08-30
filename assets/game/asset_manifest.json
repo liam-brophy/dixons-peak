@@ -1,467 +1,112 @@
 {
   "version": "1.0",
   "assets": {
-    "Dixon_Water": {
-      "Dixon_Water_idle_down": {
-        "path": "characters/Dixon_Water/Dixon_Water_idle_down.png",
+    "ghost_dude": {
+      "ghost_dude_jump_down": {
+        "path": "characters/ghost_dude/ghost_dude_jump_down.png",
         "size": [
           96,
           96
         ],
-        "original_bounds": [
-          84,
-          24,
-          76,
-          135
-        ],
-        "grid_position": [
-          0,
-          0
-        ]
+        "type": "sprite"
       },
-      "Dixon_Water_idle_left": {
-        "path": "characters/Dixon_Water/Dixon_Water_idle_left.png",
+      "ghost_dude_walk_down": {
+        "path": "characters/ghost_dude/ghost_dude_walk_down.png",
         "size": [
           96,
           96
         ],
-        "original_bounds": [
-          23,
-          200,
-          83,
-          129
-        ],
-        "grid_position": [
-          0,
-          1
-        ]
+        "type": "sprite"
       },
-      "Dixon_Water_idle_right": {
-        "path": "characters/Dixon_Water/Dixon_Water_idle_right.png",
+      "ghost_dude_idle_right": {
+        "path": "characters/ghost_dude/ghost_dude_idle_right.png",
         "size": [
           96,
           96
         ],
-        "original_bounds": [
-          155,
-          198,
-          74,
-          131
-        ],
-        "grid_position": [
-          0,
-          2
-        ]
+        "type": "sprite"
       },
-      "Dixon_Water_idle_up": {
-        "path": "characters/Dixon_Water/Dixon_Water_idle_up.png",
+      "ghost_dude_idle_up": {
+        "path": "characters/ghost_dude/ghost_dude_idle_up.png",
         "size": [
           96,
           96
         ],
-        "original_bounds": [
-          270,
-          29,
-          207,
-          129
-        ],
-        "grid_position": [
-          0,
-          3
-        ]
+        "type": "sprite"
       },
-      "Dixon_Water_walk_down": {
-        "path": "characters/Dixon_Water/Dixon_Water_walk_down.png",
+      "ghost_dude_idle_down": {
+        "path": "characters/ghost_dude/ghost_dude_idle_down.png",
         "size": [
           96,
           96
         ],
-        "original_bounds": [
-          284,
-          198,
-          74,
-          131
-        ],
-        "grid_position": [
-          1,
-          0
-        ]
+        "type": "sprite"
       },
-      "Dixon_Water_walk_left": {
-        "path": "characters/Dixon_Water/Dixon_Water_walk_left.png",
+      "ghost_dude_walk_up": {
+        "path": "characters/ghost_dude/ghost_dude_walk_up.png",
         "size": [
           96,
           96
         ],
-        "original_bounds": [
-          419,
-          200,
-          73,
-          129
-        ],
-        "grid_position": [
-          1,
-          1
-        ]
+        "type": "sprite"
       },
-      "Dixon_Water_walk_right": {
-        "path": "characters/Dixon_Water/Dixon_Water_walk_right.png",
+      "ghost_dude_idle_left": {
+        "path": "characters/ghost_dude/ghost_dude_idle_left.png",
         "size": [
           96,
           96
         ],
-        "original_bounds": [
-          523,
-          29,
-          210,
-          129
-        ],
-        "grid_position": [
-          1,
-          2
-        ]
+        "type": "sprite"
       },
-      "Dixon_Water_walk_up": {
-        "path": "characters/Dixon_Water/Dixon_Water_walk_up.png",
+      "ghost_dude_jump_right": {
+        "path": "characters/ghost_dude/ghost_dude_jump_right.png",
         "size": [
           96,
           96
         ],
-        "original_bounds": [
-          541,
-          199,
-          76,
-          130
-        ],
-        "grid_position": [
-          1,
-          3
-        ]
+        "type": "sprite"
       },
-      "Dixon_Water_jump_down": {
-        "path": "characters/Dixon_Water/Dixon_Water_jump_down.png",
+      "ghost_dude_jump_up": {
+        "path": "characters/ghost_dude/ghost_dude_jump_up.png",
         "size": [
           96,
           96
         ],
-        "original_bounds": [
-          668,
-          213,
-          77,
-          115
-        ],
-        "grid_position": [
-          2,
-          0
-        ]
+        "type": "sprite"
       },
-      "Dixon_Water_jump_left": {
-        "path": "characters/Dixon_Water/Dixon_Water_jump_left.png",
+      "ghost_dude_walk_right": {
+        "path": "characters/ghost_dude/ghost_dude_walk_right.png",
         "size": [
           96,
           96
         ],
-        "original_bounds": [
-          787,
-          29,
-          208,
-          129
-        ],
-        "grid_position": [
-          2,
-          1
-        ]
+        "type": "sprite"
       },
-      "Dixon_Water_jump_right": {
-        "path": "characters/Dixon_Water/Dixon_Water_jump_right.png",
+      "ghost_dude_walk_left": {
+        "path": "characters/ghost_dude/ghost_dude_walk_left.png",
         "size": [
           96,
           96
         ],
-        "original_bounds": [
-          926,
-          201,
-          74,
-          128
-        ],
-        "grid_position": [
-          2,
-          2
-        ]
+        "type": "sprite"
       },
-      "Dixon_Water_jump_up": {
-        "path": "characters/Dixon_Water/Dixon_Water_jump_up.png",
+      "ghost_dude_jump_left": {
+        "path": "characters/ghost_dude/ghost_dude_jump_left.png",
         "size": [
           96,
           96
         ],
-        "original_bounds": [
-          804,
-          215,
-          62,
-          114
-        ],
-        "grid_position": [
-          2,
-          3
-        ]
-      },
-      "Dixon_Water_fall_down": {
-        "path": "characters/Dixon_Water/Dixon_Water_fall_down.png",
-        "size": [
-          96,
-          96
-        ],
-        "original_bounds": [
-          214,
-          437,
-          194,
-          67
-        ],
-        "grid_position": [
-          3,
-          0
-        ]
-      },
-      "Dixon_Water_fall_left": {
-        "path": "characters/Dixon_Water/Dixon_Water_fall_left.png",
-        "size": [
-          96,
-          96
-        ],
-        "original_bounds": [
-          23,
-          374,
-          129,
-          134
-        ],
-        "grid_position": [
-          3,
-          1
-        ]
-      },
-      "Dixon_Water_fall_right": {
-        "path": "characters/Dixon_Water/Dixon_Water_fall_right.png",
-        "size": [
-          96,
-          96
-        ],
-        "original_bounds": [
-          445,
-          379,
-          221,
-          124
-        ],
-        "grid_position": [
-          3,
-          2
-        ]
-      },
-      "Dixon_Water_fall_up": {
-        "path": "characters/Dixon_Water/Dixon_Water_fall_up.png",
-        "size": [
-          96,
-          96
-        ],
-        "original_bounds": [
-          212,
-          577,
-          219,
-          94
-        ],
-        "grid_position": [
-          3,
-          3
-        ]
+        "type": "sprite"
       }
     },
     "Dixon_Floral": {
-      "Dixon_Floral_idle_down": {
-        "path": "characters/Dixon_Floral/Dixon_Floral_idle_down.png",
+      "Dixon_Floral_fall_up": {
+        "path": "characters/Dixon_Floral/Dixon_Floral_fall_up.png",
         "size": [
           96,
           96
         ],
-        "original_bounds": [
-          84,
-          24,
-          75,
-          135
-        ],
-        "grid_position": [
-          0,
-          0
-        ]
-      },
-      "Dixon_Floral_idle_left": {
-        "path": "characters/Dixon_Floral/Dixon_Floral_idle_left.png",
-        "size": [
-          96,
-          96
-        ],
-        "original_bounds": [
-          23,
-          201,
-          83,
-          128
-        ],
-        "grid_position": [
-          0,
-          1
-        ]
-      },
-      "Dixon_Floral_idle_right": {
-        "path": "characters/Dixon_Floral/Dixon_Floral_idle_right.png",
-        "size": [
-          96,
-          96
-        ],
-        "original_bounds": [
-          155,
-          199,
-          74,
-          130
-        ],
-        "grid_position": [
-          0,
-          2
-        ]
-      },
-      "Dixon_Floral_idle_up": {
-        "path": "characters/Dixon_Floral/Dixon_Floral_idle_up.png",
-        "size": [
-          96,
-          96
-        ],
-        "original_bounds": [
-          270,
-          26,
-          207,
-          132
-        ],
-        "grid_position": [
-          0,
-          3
-        ]
-      },
-      "Dixon_Floral_walk_down": {
-        "path": "characters/Dixon_Floral/Dixon_Floral_walk_down.png",
-        "size": [
-          96,
-          96
-        ],
-        "original_bounds": [
-          283,
-          198,
-          78,
-          131
-        ],
-        "grid_position": [
-          1,
-          0
-        ]
-      },
-      "Dixon_Floral_walk_left": {
-        "path": "characters/Dixon_Floral/Dixon_Floral_walk_left.png",
-        "size": [
-          96,
-          96
-        ],
-        "original_bounds": [
-          419,
-          199,
-          73,
-          130
-        ],
-        "grid_position": [
-          1,
-          1
-        ]
-      },
-      "Dixon_Floral_walk_right": {
-        "path": "characters/Dixon_Floral/Dixon_Floral_walk_right.png",
-        "size": [
-          96,
-          96
-        ],
-        "original_bounds": [
-          538,
-          29,
-          195,
-          129
-        ],
-        "grid_position": [
-          1,
-          2
-        ]
-      },
-      "Dixon_Floral_walk_up": {
-        "path": "characters/Dixon_Floral/Dixon_Floral_walk_up.png",
-        "size": [
-          96,
-          96
-        ],
-        "original_bounds": [
-          541,
-          199,
-          77,
-          130
-        ],
-        "grid_position": [
-          1,
-          3
-        ]
-      },
-      "Dixon_Floral_jump_down": {
-        "path": "characters/Dixon_Floral/Dixon_Floral_jump_down.png",
-        "size": [
-          96,
-          96
-        ],
-        "original_bounds": [
-          668,
-          213,
-          77,
-          115
-        ],
-        "grid_position": [
-          2,
-          0
-        ]
-      },
-      "Dixon_Floral_jump_left": {
-        "path": "characters/Dixon_Floral/Dixon_Floral_jump_left.png",
-        "size": [
-          96,
-          96
-        ],
-        "original_bounds": [
-          787,
-          27,
-          208,
-          131
-        ],
-        "grid_position": [
-          2,
-          1
-        ]
-      },
-      "Dixon_Floral_jump_right": {
-        "path": "characters/Dixon_Floral/Dixon_Floral_jump_right.png",
-        "size": [
-          96,
-          96
-        ],
-        "original_bounds": [
-          926,
-          202,
-          73,
-          127
-        ],
-        "grid_position": [
-          2,
-          2
-        ]
+        "type": "sprite"
       },
       "Dixon_Floral_jump_up": {
         "path": "characters/Dixon_Floral/Dixon_Floral_jump_up.png",
@@ -469,33 +114,31 @@
           96,
           96
         ],
-        "original_bounds": [
-          805,
-          214,
-          60,
-          115
-        ],
-        "grid_position": [
-          2,
-          3
-        ]
+        "type": "sprite"
       },
-      "Dixon_Floral_fall_down": {
-        "path": "characters/Dixon_Floral/Dixon_Floral_fall_down.png",
+      "Dixon_Floral_walk_down": {
+        "path": "characters/Dixon_Floral/Dixon_Floral_walk_down.png",
         "size": [
           96,
           96
         ],
-        "original_bounds": [
-          214,
-          429,
-          194,
-          75
+        "type": "sprite"
+      },
+      "Dixon_Floral_jump_down": {
+        "path": "characters/Dixon_Floral/Dixon_Floral_jump_down.png",
+        "size": [
+          96,
+          96
         ],
-        "grid_position": [
-          3,
-          0
-        ]
+        "type": "sprite"
+      },
+      "Dixon_Floral_walk_up": {
+        "path": "characters/Dixon_Floral/Dixon_Floral_walk_up.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
       },
       "Dixon_Floral_fall_left": {
         "path": "characters/Dixon_Floral/Dixon_Floral_fall_left.png",
@@ -503,16 +146,7 @@
           96,
           96
         ],
-        "original_bounds": [
-          23,
-          371,
-          130,
-          136
-        ],
-        "grid_position": [
-          3,
-          1
-        ]
+        "type": "sprite"
       },
       "Dixon_Floral_fall_right": {
         "path": "characters/Dixon_Floral/Dixon_Floral_fall_right.png",
@@ -520,39 +154,438 @@
           96,
           96
         ],
-        "original_bounds": [
-          445,
-          372,
-          221,
-          131
-        ],
-        "grid_position": [
-          3,
-          2
-        ]
+        "type": "sprite"
       },
-      "Dixon_Floral_fall_up": {
-        "path": "characters/Dixon_Floral/Dixon_Floral_fall_up.png",
+      "Dixon_Floral_idle_right": {
+        "path": "characters/Dixon_Floral/Dixon_Floral_idle_right.png",
         "size": [
           96,
           96
         ],
-        "original_bounds": [
-          212,
-          577,
-          220,
-          94
+        "type": "sprite"
+      },
+      "Dixon_Floral_idle_down": {
+        "path": "characters/Dixon_Floral/Dixon_Floral_idle_down.png",
+        "size": [
+          96,
+          96
         ],
-        "grid_position": [
-          3,
-          3
-        ]
+        "type": "sprite"
+      },
+      "Dixon_Floral_walk_right": {
+        "path": "characters/Dixon_Floral/Dixon_Floral_walk_right.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Floral_idle_left": {
+        "path": "characters/Dixon_Floral/Dixon_Floral_idle_left.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Floral_idle_up": {
+        "path": "characters/Dixon_Floral/Dixon_Floral_idle_up.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Floral_fall_down": {
+        "path": "characters/Dixon_Floral/Dixon_Floral_fall_down.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Floral_jump_left": {
+        "path": "characters/Dixon_Floral/Dixon_Floral_jump_left.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Floral_walk_left": {
+        "path": "characters/Dixon_Floral/Dixon_Floral_walk_left.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Floral_jump_right": {
+        "path": "characters/Dixon_Floral/Dixon_Floral_jump_right.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      }
+    },
+    "Dixon_Water": {
+      "Dixon_Water_jump_right": {
+        "path": "characters/Dixon_Water/Dixon_Water_jump_right.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Water_walk_up": {
+        "path": "characters/Dixon_Water/Dixon_Water_walk_up.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Water_walk_down": {
+        "path": "characters/Dixon_Water/Dixon_Water_walk_down.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Water_jump_down": {
+        "path": "characters/Dixon_Water/Dixon_Water_jump_down.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Water_walk_right": {
+        "path": "characters/Dixon_Water/Dixon_Water_walk_right.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Water_jump_up": {
+        "path": "characters/Dixon_Water/Dixon_Water_jump_up.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Water_fall_left": {
+        "path": "characters/Dixon_Water/Dixon_Water_fall_left.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Water_fall_up": {
+        "path": "characters/Dixon_Water/Dixon_Water_fall_up.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Water_idle_down": {
+        "path": "characters/Dixon_Water/Dixon_Water_idle_down.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Water_fall_right": {
+        "path": "characters/Dixon_Water/Dixon_Water_fall_right.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Water_idle_right": {
+        "path": "characters/Dixon_Water/Dixon_Water_idle_right.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Water_idle_left": {
+        "path": "characters/Dixon_Water/Dixon_Water_idle_left.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Water_fall_down": {
+        "path": "characters/Dixon_Water/Dixon_Water_fall_down.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Water_idle_up": {
+        "path": "characters/Dixon_Water/Dixon_Water_idle_up.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Water_jump_left": {
+        "path": "characters/Dixon_Water/Dixon_Water_jump_left.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "Dixon_Water_walk_left": {
+        "path": "characters/Dixon_Water/Dixon_Water_walk_left.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      }
+    },
+    "alien_dude": {
+      "alien_dude_jump_left": {
+        "path": "characters/alien_dude/alien_dude_jump_left.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_row5_left": {
+        "path": "characters/alien_dude/alien_dude_row5_left.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_row4_left": {
+        "path": "characters/alien_dude/alien_dude_row4_left.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_walk_left": {
+        "path": "characters/alien_dude/alien_dude_walk_left.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_walk_col4": {
+        "path": "characters/alien_dude/alien_dude_walk_col4.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_row4_col4": {
+        "path": "characters/alien_dude/alien_dude_row4_col4.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_jump_col4": {
+        "path": "characters/alien_dude/alien_dude_jump_col4.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_idle_left": {
+        "path": "characters/alien_dude/alien_dude_idle_left.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_idle_right": {
+        "path": "characters/alien_dude/alien_dude_idle_right.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_idle_up": {
+        "path": "characters/alien_dude/alien_dude_idle_up.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_fall_down": {
+        "path": "characters/alien_dude/alien_dude_fall_down.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_fall_right": {
+        "path": "characters/alien_dude/alien_dude_fall_right.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_row4_right": {
+        "path": "characters/alien_dude/alien_dude_row4_right.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_idle_col4": {
+        "path": "characters/alien_dude/alien_dude_idle_col4.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_fall_left": {
+        "path": "characters/alien_dude/alien_dude_fall_left.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_walk_right": {
+        "path": "characters/alien_dude/alien_dude_walk_right.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_idle_down": {
+        "path": "characters/alien_dude/alien_dude_idle_down.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_walk_up": {
+        "path": "characters/alien_dude/alien_dude_walk_up.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_fall_col4": {
+        "path": "characters/alien_dude/alien_dude_fall_col4.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_row4_up": {
+        "path": "characters/alien_dude/alien_dude_row4_up.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_jump_right": {
+        "path": "characters/alien_dude/alien_dude_jump_right.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_walk_down": {
+        "path": "characters/alien_dude/alien_dude_walk_down.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_jump_down": {
+        "path": "characters/alien_dude/alien_dude_jump_down.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_row5_down": {
+        "path": "characters/alien_dude/alien_dude_row5_down.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_row4_down": {
+        "path": "characters/alien_dude/alien_dude_row4_down.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_jump_up": {
+        "path": "characters/alien_dude/alien_dude_jump_up.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      },
+      "alien_dude_fall_up": {
+        "path": "characters/alien_dude/alien_dude_fall_up.png",
+        "size": [
+          96,
+          96
+        ],
+        "type": "sprite"
+      }
+    },
+    "backgrounds": {
+      "inside the house": {
+        "path": "backgrounds/inside the house.jpeg",
+        "type": "background"
+      },
+      "autumn": {
+        "path": "backgrounds/autumn.jpeg",
+        "type": "background"
       }
     }
-  },
-  "sprite_size": [
-    96,
-    96
-  ],
-  "format": "PNG"
+  }
 }

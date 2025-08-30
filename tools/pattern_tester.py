@@ -34,7 +34,7 @@ def test_patterns():
     
     return extractor
 
-def extract_with_pattern(pattern_name: str):
+def extract_with_pattern(pattern_name: str, image_path: str = None, character_name: str = None):
     """Extract sprites using a specific pattern"""
     
     print(f"\n🚀 Extracting sprites with pattern: {pattern_name}")
@@ -42,28 +42,38 @@ def extract_with_pattern(pattern_name: str):
     extractor = ImprovedVisualExtractor("asset_config.json")
     extractor.set_naming_pattern(pattern_name)
     
-    # Clean and process
-    import shutil
-    output_dir = "assets/game/characters"
-    if os.path.exists(output_dir):
-        shutil.rmtree(output_dir)
-    os.makedirs(output_dir, exist_ok=True)
-    
-    # Process both character sheets
-    image_files = [
-        "assets/raw/character_sheets/Dixon_Water.jpeg",
-        "assets/raw/character_sheets/Dixon_Floral.jpeg"
-    ]
-    
     total_sprites = 0
-    for image_path in image_files:
+    
+    if image_path and character_name:
+        # Process single character
         if os.path.exists(image_path):
-            character_name = Path(image_path).stem
             sprite_count = extractor.extract_sprites_improved(image_path, character_name)
             total_sprites += sprite_count
             print(f"✅ Extracted {sprite_count} sprites from {character_name}")
         else:
             print(f"❌ Image not found: {image_path}")
+    else:
+        # Process all default characters
+        output_dir = "assets/game/characters"
+        if os.path.exists(output_dir):
+            import shutil
+            shutil.rmtree(output_dir)
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # Process both character sheets
+        image_files = [
+            "assets/raw/character_sheets/Dixon_Water.jpeg",
+            "assets/raw/character_sheets/Dixon_Floral.jpeg"
+        ]
+        
+        for image_path in image_files:
+            if os.path.exists(image_path):
+                character_name = Path(image_path).stem
+                sprite_count = extractor.extract_sprites_improved(image_path, character_name)
+                total_sprites += sprite_count
+                print(f"✅ Extracted {sprite_count} sprites from {character_name}")
+            else:
+                print(f"❌ Image not found: {image_path}")
     
     # Save manifest
     extractor.save_asset_manifest()
@@ -77,14 +87,23 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         # Extract with specific pattern
         pattern_name = sys.argv[1]
-        extract_with_pattern(pattern_name)
+        
+        # Check if image path and character name are provided
+        if len(sys.argv) >= 4:
+            image_path = sys.argv[2]
+            character_name = sys.argv[3]
+            extract_with_pattern(pattern_name, image_path, character_name)
+        else:
+            # Process all default characters
+            extract_with_pattern(pattern_name)
     else:
         # Just test and show patterns
         extractor = test_patterns()
         
         print("\n" + "="*60)
         print("USAGE:")
-        print("  python pattern_tester.py pattern_b    # Extract with pattern B")
+        print("  python pattern_tester.py pattern_b                              # Extract all default characters")
+        print("  python pattern_tester.py pattern_b <image_path> <character_name> # Extract single character")
         print("  python pattern_tester.py pattern_a    # Extract with pattern A") 
         print("  python pattern_tester.py pattern_c    # Extract with pattern C")
         print("  python pattern_tester.py pattern_d    # Extract with pattern D")

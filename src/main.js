@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const inputHandler = new InputHandler();
   
   // Create game instance
-  const game = new Game(canvas, ctx, player, inputHandler);
+  const game = new Game(canvas, ctx, player, inputHandler, assetLoader);
   
   // Start the game
   game.start();

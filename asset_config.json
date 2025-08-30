@@ -10,6 +10,12 @@
     "manual_rows": 4,
     "manual_cols": 4
   },
+  "characters": [
+    "Dixon_Water",
+    "Dixon_Floral", 
+    "alien_dude",
+    "ghost_dude"
+  ],
   "naming": {
     "character_name": "character",
     "actions": [
@@ -19,10 +25,10 @@
       "fall"
     ],
     "directions": [
+      "down",
       "left",
       "right",
-      "up",
-      "down"
+      "up"
     ]
   },
   "background_removal": {

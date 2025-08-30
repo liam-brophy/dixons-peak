@@ -8,7 +8,12 @@ export class Player {
     this.speed = 0.2;
     this.direction = 'down'; // down, up, left, right
     this.state = 'idle'; // idle, walk, jump, fall
-    this.characterType = 'Dixon_Water'; // Dixon_Water, Dixon_Floral
+    
+    // All available characters
+    this.availableCharacters = ['Dixon_Water', 'Dixon_Floral', 'alien_dude', 'ghost_dude'];
+    this.currentCharacterIndex = 0;
+    this.characterType = this.availableCharacters[this.currentCharacterIndex];
+    
     this.assetLoader = assetLoader;
     this.animationFrame = 0;
     this.animationTimer = 0;
@@ -56,8 +61,9 @@ export class Player {
 
   // Switch between character types
   switchCharacter() {
-    this.characterType = this.characterType === 'Dixon_Water' ? 'Dixon_Floral' : 'Dixon_Water';
-    console.log(`Switched to ${this.characterType}`);
+    this.currentCharacterIndex = (this.currentCharacterIndex + 1) % this.availableCharacters.length;
+    this.characterType = this.availableCharacters[this.currentCharacterIndex];
+    console.log(`Switched to ${this.characterType} (${this.currentCharacterIndex + 1}/${this.availableCharacters.length})`);
   }
 
   // Update animation frame
@@ -149,7 +155,24 @@ export class Player {
       }
     } else {
       // Fallback if sprite not loaded - color-coded based on character type
-      ctx.fillStyle = this.characterType === 'Dixon_Water' ? 'rgba(0, 100, 255, 0.7)' : 'rgba(50, 200, 50, 0.7)';
+      let color;
+      switch (this.characterType) {
+        case 'Dixon_Water':
+          color = 'rgba(0, 100, 255, 0.7)'; // Blue
+          break;
+        case 'Dixon_Floral':
+          color = 'rgba(50, 200, 50, 0.7)'; // Green
+          break;
+        case 'alien_dude':
+          color = 'rgba(128, 0, 128, 0.7)'; // Purple
+          break;
+        case 'ghost_dude':
+          color = 'rgba(255, 255, 255, 0.7)'; // White
+          break;
+        default:
+          color = 'rgba(128, 128, 128, 0.7)'; // Gray
+      }
+      ctx.fillStyle = color;
       ctx.fillRect(this.x, this.y, this.width, this.height);
       
       // Draw directional indicator
