@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dixons Peak</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    
+    .game-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    canvas {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      display: block;
+    }
+    
+    .game-title {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #333;
+      font-size: 24px;
+    }
+    
+    .controls {
+      margin-top: 15px;
+      text-align: center;
+      color: #555;
+      font-size: 14px;
+    }
+    
+    .character-info {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      margin-top: 15px;
+    }
+    
+    .character-option {
+      text-align: center;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+    }
+    
+    .character-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <h1 class="game-title">Dixon's Peak</h1>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <div class="controls">
+      <p><strong>Controls:</strong> WASD to move | SPACE to switch character | F to toggle FPS | D to toggle debug</p>
+    </div>
+    <div class="character-info">
+      <div class="character-option">
+        <div class="character-name">Dixon Water</div>
+        <div>Water-themed character</div>
+      </div>
+      <div class="character-option">
+        <div class="character-name">Dixon Floral</div>
+        <div>Floral-themed character</div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

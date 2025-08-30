@@ -2,8 +2,8 @@
   "input_dir": "assets/raw/character_sheets",
   "output_dir": "assets/game",
   "sprite_size": [
-    64,
-    64
+    96,
+    96
   ],
   "grid_detection": {
     "auto_detect": false,
