@@ -578,12 +578,14 @@
       }
     },
     "backgrounds": {
-      "inside the house": {
+      "inside_house": {
         "path": "backgrounds/inside the house.jpeg",
+        "meta": "backgrounds/inside_house.meta.json",
         "type": "background"
       },
       "autumn": {
         "path": "backgrounds/autumn.jpeg",
+        "meta": "backgrounds/autumn.meta.json",
         "type": "background"
       }
     }

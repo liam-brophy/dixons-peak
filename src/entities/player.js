@@ -101,6 +101,17 @@ export class Player {
     this.state = 'idle';
   }
 
+  // Return the player's world-space bounding rect
+  getRect() {
+    return { x: this.x, y: this.y, w: this.width, h: this.height };
+  }
+
+  // Place player at a spawn position
+  setSpawn(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
   // Get the sprite name based on current state
   getSpriteName() {
     return `${this.characterType}_${this.state}_${this.direction}`;

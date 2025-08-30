@@ -91,8 +91,9 @@ export class AssetLoader {
       const backgroundPromises = [];
       
       for (const [bgName, bgInfo] of Object.entries(this.assets.backgrounds)) {
-        const bgPath = bgInfo.path || bgInfo;
-        backgroundPromises.push(this.loadBackground(bgName, bgPath));
+        const bgPath = (bgInfo && (bgInfo.path || bgInfo)) || bgInfo;
+        const bgMeta = bgInfo && (bgInfo.meta || bgInfo.metaPath);
+        backgroundPromises.push(this.loadBackground(bgName, bgPath, bgMeta));
       }
       
       await Promise.allSettled(backgroundPromises);
@@ -101,13 +102,29 @@ export class AssetLoader {
     }
   }
 
-  async loadBackground(name, path) {
+  async loadBackground(name, path, metaPath) {
     return new Promise((resolve) => {
       const img = new Image();
-      img.onload = () => {
-        this.backgrounds[name] = img;
+      img.onload = async () => {
+        // store image and allow meta to be attached
+        this.backgrounds[name] = { image: img, meta: null, path };
+
+        // if metadata path provided, try to fetch it
+        if (metaPath) {
+          try {
+            const res = await fetch('/assets/game/' + metaPath);
+            if (res.ok) {
+              this.backgrounds[name].meta = await res.json();
+            } else {
+              console.warn(`⚠️  Failed to fetch meta for ${name}: ${res.status} ${res.statusText}`);
+            }
+          } catch (e) {
+            console.warn(`⚠️  Error fetching meta for ${name}:`, e);
+          }
+        }
+
         console.log(`✅ Background loaded: ${name}`);
-        resolve(img);
+        resolve(this.backgrounds[name]);
       };
       img.onerror = (error) => {
         console.warn(`⚠️  Failed to load background ${name} from ${path}:`, error);

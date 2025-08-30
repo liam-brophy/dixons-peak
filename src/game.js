@@ -1,11 +1,14 @@
 // Game class that handles the game loop and rendering
 export class Game {
-  constructor(canvas, ctx, player, inputHandler, assetLoader) {
+  constructor(canvas, ctx, player, inputHandler, assetLoader, camera = null, collision = null, sceneManager = null) {
     this.canvas = canvas;
     this.ctx = ctx;
     this.player = player;
     this.inputHandler = inputHandler;
     this.assetLoader = assetLoader;
+    this.camera = camera;
+    this.collision = collision;
+    this.sceneManager = sceneManager;
     this.lastTime = 0;
     this.running = false;
     
@@ -30,6 +33,14 @@ export class Game {
     this.availableBackgrounds = this.assetLoader.getAllBackgrounds();
     if (this.availableBackgrounds.length > 0) {
       console.log('🌄 Available backgrounds:', this.availableBackgrounds);
+    }
+
+    // If scene manager exists, load the first scene
+    if (this.sceneManager && this.availableBackgrounds.length > 0) {
+      const first = this.availableBackgrounds[0];
+      this.sceneManager.loadScene(first).then(() => {
+        // Optionally center camera on player spawn if meta provides a spawn
+      }).catch(e => console.warn('Failed to load initial scene', e));
     }
     
     requestAnimationFrame(this.gameLoop.bind(this));
@@ -71,10 +82,10 @@ export class Game {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     
     // Draw background
-    this.drawBackground();
+  this.drawBackground();
 
-    // Update player based on input
-    this.updatePlayer(deltaTime);
+  // Update player based on input (with collision and scene interactions)
+  this.updatePlayer(deltaTime);
 
     // Render player
     this.player.render(this.ctx);
@@ -90,36 +101,32 @@ export class Game {
   
   drawBackground() {
     // Draw background image if available, otherwise use a subtle color
-    if (this.availableBackgrounds.length > 0) {
-      const backgroundName = this.availableBackgrounds[this.currentBackgroundIndex];
-      const backgroundImg = this.assetLoader.getBackground(backgroundName);
-      
-      if (backgroundImg) {
-        // Scale background to fit canvas while maintaining aspect ratio
-        const canvasAspect = this.canvas.width / this.canvas.height;
-        const imgAspect = backgroundImg.width / backgroundImg.height;
-        
-        let drawWidth, drawHeight, offsetX = 0, offsetY = 0;
-        
-        if (imgAspect > canvasAspect) {
-          // Image is wider - scale to match height
-          drawHeight = this.canvas.height;
-          drawWidth = drawHeight * imgAspect;
-          offsetX = (this.canvas.width - drawWidth) / 2;
-        } else {
-          // Image is taller - scale to match width
-          drawWidth = this.canvas.width;
-          drawHeight = drawWidth / imgAspect;
-          offsetY = (this.canvas.height - drawHeight) / 2;
-        }
-        
-        this.ctx.drawImage(backgroundImg, offsetX, offsetY, drawWidth, drawHeight);
-      } else {
-        // Fallback to gradient background
-        this.drawFallbackBackground();
+    if (this.sceneManager && this.sceneManager.current) {
+      const bgEntry = this.sceneManager.current; // { image, meta, path }
+      const img = bgEntry.image;
+      const meta = bgEntry.meta || {};
+
+      // We want to draw only the camera viewport of the background
+      if (this.camera && img) {
+        const sx = this.camera.x;
+        const sy = this.camera.y;
+        const sw = this.camera.w;
+        const sh = this.camera.h;
+
+        // Draw portion of the background to fill canvas
+        this.ctx.drawImage(img, sx, sy, sw, sh, 0, 0, this.canvas.width, this.canvas.height);
+        return;
       }
+
+      // Fallback: old behavior - draw full image scaled
+      if (img) {
+        this.ctx.drawImage(img, 0, 0, this.canvas.width, this.canvas.height);
+        return;
+      }
+
+      this.drawFallbackBackground();
     } else {
-      // No backgrounds available - use fallback
+      // No scene manager or scene loaded - fallback
       this.drawFallbackBackground();
     }
   }
@@ -164,18 +171,66 @@ export class Game {
   }
 
   updatePlayer(deltaTime) {
-    // Handle movement input
-    if (this.inputHandler.keys.w) {
-      this.player.moveUp(deltaTime);
+    // Handle movement input - compute tentative movement and test collision
+    const move = { x: 0, y: 0 };
+    if (this.inputHandler.keys.w) move.y -= 1;
+    if (this.inputHandler.keys.s) move.y += 1;
+    if (this.inputHandler.keys.a) move.x -= 1;
+    if (this.inputHandler.keys.d) move.x += 1;
+
+    // Normalize diagonal movement
+    if (move.x !== 0 && move.y !== 0) {
+      const inv = Math.sqrt(0.5);
+      move.x *= inv;
+      move.y *= inv;
     }
-    if (this.inputHandler.keys.s) {
-      this.player.moveDown(deltaTime);
+
+    // Compute candidate position
+    const candidateX = this.player.x + move.x * this.player.speed * deltaTime;
+    const candidateY = this.player.y + move.y * this.player.speed * deltaTime;
+    const candidateRect = { x: candidateX, y: candidateY, w: this.player.width, h: this.player.height };
+
+    let blocked = false;
+    if (this.collision) {
+      blocked = this.collision.checkMovement(candidateRect);
     }
-    if (this.inputHandler.keys.a) {
-      this.player.moveLeft(deltaTime);
+
+    if (!blocked) {
+      // Apply movement
+      this.player.x = candidateX;
+      this.player.y = candidateY;
+
+      // Update player direction/state
+      if (move.x !== 0 || move.y !== 0) {
+        this.player.state = 'walk';
+        if (Math.abs(move.x) > Math.abs(move.y)) {
+          this.player.direction = move.x > 0 ? 'right' : 'left';
+        } else if (move.y !== 0) {
+          this.player.direction = move.y > 0 ? 'down' : 'up';
+        }
+      }
+    } else {
+      this.player.state = 'idle';
     }
-    if (this.inputHandler.keys.d) {
-      this.player.moveRight(deltaTime);
+
+    // Interaction / scene transitions
+    if (this.collision && this.sceneManager) {
+      const playerRect = { x: this.player.x, y: this.player.y, w: this.player.width, h: this.player.height };
+      const interactive = this.collision.findInteractiveOverlap(playerRect);
+      if (interactive) {
+        // If space pressed (or auto-enter), transition
+        if (this.inputHandler.keys.space && !this.inputHandler.keysPrevious.space) {
+          if (interactive.type === 'door' && interactive.dest) {
+            // Load destination scene and move player to spawn
+            this.sceneManager.loadScene(interactive.dest, interactive.spawn).then(({ bg, spawn }) => {
+              if (spawn) {
+                this.player.x = spawn.x;
+                this.player.y = spawn.y;
+              }
+            }).catch(e => console.warn('Failed to load scene from door', e));
+          }
+        }
+      }
     }
 
     // Handle character switch
@@ -187,13 +242,27 @@ export class Game {
     this.inputHandler.updatePreviousKeys();
     
     // Keep player within canvas bounds
-    if (this.player.x < 0) this.player.x = 0;
-    if (this.player.y < 0) this.player.y = 0;
-    if (this.player.x > this.canvas.width - this.player.width) {
-      this.player.x = this.canvas.width - this.player.width;
-    }
-    if (this.player.y > this.canvas.height - this.player.height) {
-      this.player.y = this.canvas.height - this.player.height;
+    // If camera exists, convert world limits using camera's current scene meta as bounds
+    if (this.camera && this.sceneManager && this.sceneManager.current && this.sceneManager.current.meta) {
+      const meta = this.sceneManager.current.meta;
+      // Clamp player to background bounds
+      this.player.x = Math.max(0, Math.min(this.player.x, (meta.width || this.canvas.width) - this.player.width));
+      this.player.y = Math.max(0, Math.min(this.player.y, (meta.height || this.canvas.height) - this.player.height));
+      // Update camera to follow player
+      this.camera.focusOn(this.player.x + this.player.width / 2, this.player.y + this.player.height / 2, meta);
+    } else {
+      if (this.player.x < 0) this.player.x = 0;
+      if (this.player.y < 0) this.player.y = 0;
+      if (this.player.x > this.canvas.width - this.player.width) {
+        this.player.x = this.canvas.width - this.player.width;
+      }
+      if (this.player.y > this.canvas.height - this.player.height) {
+        this.player.y = this.canvas.height - this.player.height;
+      }
+      // If camera exists but no meta, center camera at player's position (no clamping)
+      if (this.camera) {
+        this.camera.focusOn(this.player.x + this.player.width / 2, this.player.y + this.player.height / 2, {});
+      }
     }
   }
 }

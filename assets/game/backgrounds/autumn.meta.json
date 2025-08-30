@@ -1,0 +1,17 @@
+{
+  "width": 2048,
+  "height": 1536,
+  "collision": [
+    { "x": 100, "y": 900, "w": 600, "h": 200 },
+    { "x": 1200, "y": 500, "w": 300, "h": 250 }
+  ],
+  "interactive": [
+    {
+      "type": "door",
+      "name": "house_entrance",
+      "rect": { "x": 1150, "y": 700, "w": 100, "h": 180 },
+      "dest": "inside_house",
+      "spawn": { "x": 1250, "y": 760 }
+    }
+  ]
+}

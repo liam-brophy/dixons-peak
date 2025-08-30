@@ -1,0 +1,17 @@
+{
+  "width": 2048,
+  "height": 1536,
+  "collision": [
+    { "x": 300, "y": 700, "w": 200, "h": 150 },
+    { "x": 800, "y": 600, "w": 400, "h": 220 }
+  ],
+  "interactive": [
+    {
+      "type": "door",
+      "name": "front_door",
+      "rect": { "x": 1200, "y": 720, "w": 80, "h": 140 },
+      "dest": "autumn",
+      "spawn": { "x": 200, "y": 1100 }
+    }
+  ]
+}
